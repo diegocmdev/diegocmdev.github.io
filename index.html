@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PE Studio · AITHERAXIS: KATABASIS</title>
-<meta name="description" content="PE Studio is an independent game studio from Spain. Its first game, AITHERAXIS: KATABASIS, is a single-player sci-fi shoot 'em up coming in 2027.">
+<meta name="description" content="PE Studio is an independent game studio from Spain. Its first game, AITHERAXIS: KATABASIS, is a sci-fi shoot 'em up with a local multiplayer mode for up to four players, coming in 2027.">
 <meta property="og:title" content="AITHERAXIS: KATABASIS · PE Studio">
-<meta property="og:description" content="A single-player sci-fi shoot 'em up where the battlefield itself shifts. Coming 2027.">
+<meta property="og:description" content="A sci-fi shoot 'em up where the battlefield itself shifts, with SQUADRON, local multiplayer for up to four players. Coming 2027.">
 <meta property="og:image" content="https://pestudio.eu/assets/tunnel.jpg">
 <meta property="og:url" content="https://pestudio.eu/">
 <meta name="theme-color" content="#080A17">
@@ -151,6 +151,29 @@
   .play .gallery img{border-radius:4px;aspect-ratio:16/9;object-fit:cover;width:100%}
   .play .gallery img.comic{object-fit:contain;background:#0b0f1a}
 
+
+  /* ---------- Squadron ---------- */
+  .squadron{position:relative;background:linear-gradient(180deg,#0B0E22 0%,var(--abyss) 100%)}
+  .squadron::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
+    background:linear-gradient(90deg,#2EE6F6 0 25%,#FFC42E 25% 50%,#14D82E 50% 75%,#B813D8 75% 100%)}
+  .sq-kicker{font-family:var(--display);font-weight:500;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--axis);margin:0 0 .9rem}
+  .squadron h2{font-size:clamp(2.4rem,6.5vw,4.4rem);letter-spacing:.14em;margin:0}
+  .sq-sub{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2.4vw,1.45rem);margin:.5rem 0 1.4rem}
+  .sq-intro{color:var(--dust);max-width:62ch;margin:0 0 2.6rem}
+  .sq-pilots{display:flex;gap:.5rem;margin:0 0 1.6rem;padding:0;list-style:none}
+  .sq-pilots li{font-family:var(--display);font-weight:700;font-size:.85rem;padding:.25rem .6rem;border-radius:3px;border:1px solid currentColor}
+  .sq-hero{border-radius:4px;width:100%;margin-bottom:2.8rem}
+  .sq-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 2.8rem;padding:0;list-style:none}
+  .sq-modes li{background:var(--hull);border-top:3px solid var(--c);border-radius:4px;padding:1.4rem 1.4rem 1.5rem}
+  .sq-modes h3{font-family:var(--display);font-size:1.15rem;letter-spacing:.06em;margin:0 0 .2rem}
+  .sq-modes .n{display:block;font-family:var(--display);font-weight:500;font-size:.8rem;letter-spacing:.1em;color:var(--c);margin-bottom:.7rem}
+  .sq-modes p{margin:0;color:var(--dust);font-size:1rem}
+  .sq-more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.2rem 3.5rem;margin:0 0 3rem}
+  .sq-more dt{font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:.4rem}
+  .sq-more dd{margin:0;color:var(--dust)}
+  .sq-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+  .sq-gallery img{border-radius:4px;aspect-ratio:16/9;object-fit:cover;width:100%}
+
   /* ---------- Studio + contact ---------- */
   .studio .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem)}
   .studio h2{margin-bottom:1.2rem}
@@ -173,7 +196,12 @@
     .shift .wrap,.studio .wrap{grid-template-columns:1fr}
     .play dl{grid-template-columns:1fr}
     .play .gallery{grid-template-columns:1fr 1fr}
+    .sq-modes{grid-template-columns:1fr}
+    .sq-more{grid-template-columns:1fr}
     .stop{padding-left:3.8rem}
+  }
+  @media (max-width:520px){
+    .sq-gallery{grid-template-columns:1fr}
   }
   @media (max-width:520px){
     .top nav a:not(:last-child){display:none}
@@ -194,6 +222,7 @@
     <a class="brand" href="#top" aria-label="PE Studio, home"><img src="assets/pestudio-logo-white.svg" width="1952" height="444" alt="PE Studio"></a>
     <nav aria-label="Main">
       <a href="#game">The game</a>
+      <a href="#squadron">Squadron</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -210,7 +239,7 @@
       <h1>AITHERAXIS: KATABASIS</h1>
       <picture><source srcset="assets/logo-katabasis.webp" type="image/webp"><img class="hero-logo" src="assets/logo-katabasis.png" width="1400" height="1048" alt="AITHERAXIS: KATABASIS logo" fetchpriority="high"></picture>
       <div class="signal" id="signal" aria-label="Return home. Do not return. Home does not exist. You have already arrived."></div>
-      <p class="tagline">A single-player sci-fi shoot 'em up where the battlefield itself shifts. In development for PC and consoles. Coming 2027.</p>
+      <p class="tagline">A sci-fi shoot 'em up where the battlefield itself shifts, plus SQUADRON, local multiplayer for up to four players. In development for PC and consoles. Coming 2027.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#game">Discover the game</a>
         <a class="btn btn-ghost" href="#contact">Contact the studio</a>
@@ -320,6 +349,34 @@
     </div>
   </section>
 
+  <section class="squadron" id="squadron" aria-labelledby="squadron-title">
+    <div class="wrap">
+      <p class="sq-kicker">Local multiplayer · included with the game</p>
+      <h2 id="squadron-title">SQUADRON</h2>
+      <p class="sq-sub">Up to four pilots. One screen.</p>
+      <ul class="sq-pilots" aria-label="Four players">
+        <li style="color:#2EE6F6">P1</li><li style="color:#FFC42E">P2</li><li style="color:#14D82E">P3</li><li style="color:#B813D8">P4</li>
+      </ul>
+      <p class="sq-intro">LYRA's combat simulators rebuild the ships and battlefields of Akryon so you and your friends can fight in free-flight 3D arenas, in split-screen. Short matches, instant rematches, no online required.</p>
+      <img class="sq-hero" src="assets/squadron-hangar.jpg" width="1600" height="896" loading="lazy" alt="The SQUADRON hangar: four platforms, one per player, with the Prototype ship and its stats">
+      <ul class="sq-modes">
+        <li style="--c:#FF3F6B"><h3>BATTLE</h3><span class="n">2–4 players</span><p>Free-for-all in the arena. Knockouts, survival or two-versus-two teams.</p></li>
+        <li style="--c:#F5A623"><h3>COLOSSUS HUNT</h3><span class="n">1–4 players</span><p>Together against the HELIOSTATO. Surround it, break its weak points and survive its phases.</p></li>
+        <li style="--c:#39E1EF"><h3>SIEGE</h3><span class="n">1–4 players</span><p>Ever harder enemy waves, with a boss every five. How far can you go?</p></li>
+      </ul>
+      <dl class="sq-more">
+        <div><dt>22 ships, no "best" one</dt><dd>Every ship has its own weapon, special ability and five stats: speed, handling, armor, power and boost. Each one wins at something and pays for it somewhere else.</dd></div>
+        <div><dt>Three arenas, three ways to fly</dt><dd>Open space in the Krux Belt, low over the ground in Helios Port and through broken hulls in the Orbital Graveyard. Each with its own hazard, on or off.</dd></div>
+        <div><dt>Classic dogfight moves</dt><dd>Loops and quick U-turns to shake off whoever is on your tail, and barrel rolls that deflect incoming fire.</dd></div>
+        <div><dt>Everyone picks at once</dt><dd>Press a button to join, choose your ship on your own platform and get ready. Nobody waits for their turn.</dd></div>
+      </dl>
+      <div class="sq-gallery">
+        <img src="assets/squadron-modes.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON game mode selection: Battle, Colossus Hunt and Siege">
+        <img src="assets/squadron-arenas.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON arena selection: Krux Belt, Helios Port, Orbital Graveyard and Random">
+      </div>
+    </div>
+  </section>
+
   <section class="studio" id="studio" aria-labelledby="studio-title">
     <div class="wrap">
       <div>
@@ -330,7 +387,7 @@
       <dl class="facts">
         <dt>Game</dt><dd>AITHERAXIS: KATABASIS</dd>
         <dt>Genre</dt><dd>Sci-fi shoot 'em up</dd>
-        <dt>Players</dt><dd>1</dd>
+        <dt>Players</dt><dd>1 (campaign) · 1–4 local (SQUADRON)</dd>
         <dt>Platforms</dt><dd>PC and consoles (planned)</dd>
         <dt>Release</dt><dd>2027</dd>
         <dt>Languages</dt><dd>English, Spanish</dd>
