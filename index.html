@@ -48,6 +48,10 @@
   .top nav{display:flex;gap:1.8rem}
   .top nav a{color:var(--starlight);text-decoration:none;font-weight:500;font-size:1rem;opacity:.85}
   .top nav a:hover{opacity:1;color:var(--axis)}
+  .top nav{align-items:center}
+  .top nav a.sol{display:inline-flex;align-items:center;gap:.55rem;opacity:1;padding:.25rem 1rem .25rem .25rem;border:1px solid rgba(245,166,35,.55);border-radius:999px;color:#FFD27A}
+  .top nav a.sol img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 2px rgba(245,166,35,.6)}
+  .top nav a.sol:hover{border-color:var(--ember);color:#FFE2A6}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;text-align:center}
@@ -190,6 +194,8 @@
   footer{border-top:1px solid rgba(151,163,191,.18);padding-block:2rem;color:var(--dust);font-size:.9rem}
   footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
   footer p{margin:0}
+  footer .foot-links a{color:var(--dust)}
+  footer .foot-links a:hover{color:var(--axis)}
 
   @media (max-width:820px){
     .top nav{gap:1.1rem}
@@ -204,7 +210,9 @@
     .sq-gallery{grid-template-columns:1fr}
   }
   @media (max-width:520px){
-    .top nav a:not(:last-child){display:none}
+    .top nav a:not(.sol):not([href="#contact"]){display:none}
+    .top nav a.sol span{display:none}
+    .top nav a.sol{padding:.2rem}
     .brand img{height:32px}
   }
   @media (prefers-reduced-motion:reduce){
@@ -225,6 +233,7 @@
       <a href="#squadron">Squadron</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
+      <a class="sol" href="/sheep-or-lead/" title="Sheep or Lead, our game for Android"><img src="assets/sheep-icon-96.png" width="96" height="96" alt=""><span>Sheep or Lead</span></a>
     </nav>
   </div>
 </header>
@@ -382,7 +391,7 @@
       <div>
         <h2 id="studio-title">One developer, one galaxy</h2>
         <p>PE Studio is an independent game studio based in Spain. It is run by one person, Diego Ceballos Mora, a computer engineer who designs, codes and builds every part of his games himself.</p>
-        <p>AITHERAXIS: KATABASIS is its first game.</p>
+        <p>Its games: AITHERAXIS: KATABASIS, coming in 2027, and <a href="/sheep-or-lead/">Sheep or Lead</a>, a cartoon arcade shooter for Android.</p>
       </div>
       <dl class="facts">
         <dt>Game</dt><dd>AITHERAXIS: KATABASIS</dd>
@@ -408,6 +417,7 @@
   <div class="wrap">
     <div class="foot-brand"><img src="assets/pestudio-monogram-white.svg" width="685" height="444" alt="" aria-hidden="true"><p>© 2026 PE Studio · Diego Ceballos Mora · Spain</p></div>
     <p>AITHERAXIS: KATABASIS is in development. Images and footage are work in progress.</p>
+    <p class="foot-links"><a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead privacy policy</a></p>
   </div>
 </footer>
 
