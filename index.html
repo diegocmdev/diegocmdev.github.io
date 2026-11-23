@@ -156,6 +156,26 @@
   .play .gallery img.comic{object-fit:contain;background:#0b0f1a}
 
 
+
+  /* ---------- Trailer ---------- */
+  .trailer{background:linear-gradient(180deg,var(--abyss) 0%,#081428 100%);text-align:center}
+  .trailer .kicker{text-align:center;max-width:none;margin-inline:auto;font-family:var(--display);font-weight:500;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--axis);margin-block:0 .8rem}
+  .trailer h2{font-size:clamp(1.9rem,4.6vw,3rem);margin:0 0 2.2rem}
+  .yt{position:relative;display:block;width:min(1040px,100%);margin:0 auto;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000;
+    box-shadow:0 0 0 1px rgba(57,225,239,.35),0 0 60px rgba(57,225,239,.18),0 30px 80px rgba(0,0,0,.6)}
+  .yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s ease;filter:saturate(1.05) brightness(.82)}
+  .yt::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,rgba(3,6,16,0) 0%,rgba(3,6,16,.55) 100%);pointer-events:none}
+  .yt .play{position:absolute;left:50%;top:50%;width:clamp(72px,11vw,112px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+    display:grid;place-items:center;background:rgba(3,6,16,.55);border:2px solid var(--axis);box-shadow:0 0 0 8px rgba(57,225,239,.12),0 0 40px rgba(57,225,239,.55);z-index:1;transition:transform .25s ease,background .25s ease}
+  .yt .play svg{width:38%;height:38%;margin-left:8%;fill:var(--axis)}
+  .yt .label{position:absolute;left:0;right:0;bottom:1.2rem;z-index:1;font-family:var(--display);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--starlight);text-shadow:0 2px 8px #000}
+  .yt:hover img,.yt:focus-visible img{transform:scale(1.03);filter:saturate(1.15) brightness(.95)}
+  .yt:hover .play,.yt:focus-visible .play{transform:translate(-50%,-50%) scale(1.08);background:rgba(57,225,239,.18)}
+  .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-top:1.8rem}
+  .yt-note{margin:1rem auto 0;max-width:60ch;color:var(--dust);font-size:.9rem}
+  @media (prefers-reduced-motion:reduce){.yt img,.yt .play{transition:none}}
+
   /* ---------- Squadron ---------- */
   .squadron{position:relative;background:linear-gradient(180deg,#0B0E22 0%,var(--abyss) 100%)}
   .squadron::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
@@ -230,6 +250,7 @@
     <a class="brand" href="#top" aria-label="PE Studio, home"><img src="assets/pestudio-logo-white.svg" width="1952" height="444" alt="PE Studio"></a>
     <nav aria-label="Main">
       <a href="#game">The game</a>
+      <a href="#trailer">Trailer</a>
       <a href="#squadron">Squadron</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
@@ -251,8 +272,25 @@
       <p class="tagline">A sci-fi shoot 'em up where the battlefield itself shifts, plus SQUADRON, local multiplayer for up to four players. In development for PC and consoles. Coming 2027.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#game">Discover the game</a>
-        <a class="btn btn-ghost" href="#contact">Contact the studio</a>
+        <a class="btn btn-ghost" href="#trailer">Watch the trailer</a>
       </div>
+    </div>
+  </section>
+
+  <section class="trailer" id="trailer" aria-labelledby="trailer-title">
+    <div class="wrap">
+      <p class="kicker">Official gameplay trailer</p>
+      <h2 id="trailer-title">See it in motion</h2>
+      <a class="yt" id="ytPlayer" href="https://www.youtube.com/watch?v=UaHFEFD-tYQ" data-id="UaHFEFD-tYQ" aria-label="Play the AITHERAXIS: KATABASIS gameplay trailer">
+        <img src="assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
+        <span class="label" aria-hidden="true">Play trailer</span>
+      </a>
+      <div class="yt-links">
+        <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=UaHFEFD-tYQ" target="_blank" rel="noopener">Watch on YouTube</a>
+        <a class="btn btn-primary" href="https://www.youtube.com/channel/UCOwWNNJ8mhLyxfcfFckn04A?sub_confirmation=1" target="_blank" rel="noopener">Subscribe to PE Studio</a>
+      </div>
+      <p class="yt-note">The video loads from YouTube only when you press play.</p>
     </div>
   </section>
 
@@ -417,7 +455,7 @@
   <div class="wrap">
     <div class="foot-brand"><img src="assets/pestudio-monogram-white.svg" width="685" height="444" alt="" aria-hidden="true"><p>© 2026 PE Studio · Diego Ceballos Mora · Spain</p></div>
     <p>AITHERAXIS: KATABASIS is in development. Images and footage are work in progress.</p>
-    <p class="foot-links"><a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead privacy policy</a></p>
+    <p class="foot-links"><a href="https://www.youtube.com/channel/UCOwWNNJ8mhLyxfcfFckn04A" target="_blank" rel="noopener">YouTube</a> · <a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead privacy policy</a></p>
   </div>
 </footer>
 
@@ -451,6 +489,23 @@
     }
   }
   setTimeout(step, 900);
+})();
+</script>
+<script>
+(function(){
+  var a=document.getElementById('ytPlayer'); if(!a) return;
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var id=a.getAttribute('data-id');
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
+    f.title='AITHERAXIS: KATABASIS gameplay trailer';
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen=true; f.referrerPolicy='strict-origin-when-cross-origin';
+    a.replaceWith(Object.assign(document.createElement('div'),{className:'yt'}));
+    document.querySelector('#trailer .yt').appendChild(f);
+    var hv=document.getElementById('heroVideo'); if(hv) try{hv.pause();}catch(_){}
+  });
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3656436e5878476fa09a67e64cc4ee21"}'></script><!-- End Cloudflare Web Analytics -->
