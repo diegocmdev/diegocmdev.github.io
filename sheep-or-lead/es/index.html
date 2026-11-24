@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sheep or Lead · Un shooter arcade de dibujos animados para Android · PE Studio</title>
+<meta name="description" content="Sheep or Lead es un shooter arcade de dibujos animados para Android de PE Studio. Elige tu oveja, tu ropa y tu arma, y aguanta contra zorros, lobos y coyotes.">
+<link rel="canonical" href="https://pestudio.eu/sheep-or-lead/es/">
+<link rel="alternate" hreflang="en" href="https://pestudio.eu/sheep-or-lead/">
+<link rel="alternate" hreflang="es" href="https://pestudio.eu/sheep-or-lead/es/">
+<link rel="alternate" hreflang="x-default" href="https://pestudio.eu/sheep-or-lead/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sheep or Lead · PE Studio">
+<meta property="og:description" content="El rebaño contraataca. Un shooter arcade de dibujos animados para Android.">
+<meta property="og:image" content="https://pestudio.eu/sheep-or-lead/assets/sol-og.jpg">
+<meta property="og:url" content="https://pestudio.eu/sheep-or-lead/es/">
+<meta name="theme-color" content="#2A211C">
+<link rel="icon" type="image/png" sizes="32x32" href="/sheep-or-lead/assets/sheep-favicon-32.png">
+<link rel="apple-touch-icon" href="/sheep-or-lead/assets/sheep-apple-touch.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A211C; --ink-2:#3A2E27; --cream:#FFF6E5; --paper:#FFFBF3;
+    --wheat:#F6B743; --barn:#C0482C; --grass:#6BBF3B; --sky:#8FD3F4; --muted:#6F625A;
+    --head:"Lilita One", "Arial Rounded MT Bold", system-ui, sans-serif;
+    --body:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --wrap:min(1120px, 100% - 3rem);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%;height:auto}
+  a{color:var(--barn)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--wheat);outline-offset:3px;border-radius:6px}
+  h1,h2,h3{font-family:var(--head);font-weight:400;line-height:1.1;margin:0;letter-spacing:.01em}
+  h2{font-size:clamp(2rem,5vw,3.2rem)}
+  .wrap{width:var(--wrap);margin-inline:auto}
+  .skip{position:absolute;left:-999px;top:0;background:var(--wheat);color:var(--ink);padding:.5rem 1rem;z-index:20}
+  .skip:focus{left:1rem;top:1rem}
+
+  /* Header */
+  .top{background:var(--ink);position:sticky;top:0;z-index:10}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:.8rem;gap:1rem}
+  .brand{display:flex;align-items:center;gap:.8rem;line-height:0;text-decoration:none}
+  .brand img{height:30px;width:auto}
+  .top nav{display:flex;gap:1.6rem;align-items:center}
+  .top nav a{color:var(--cream);text-decoration:none;font-weight:600;font-size:1rem;opacity:.9}
+  .top nav a:hover{opacity:1;color:var(--wheat)}
+  .lang-mini{display:inline-flex;gap:.15rem;border:1px solid currentColor;border-radius:999px;padding:.12rem;opacity:.9}
+  .lang-mini a{padding:.15rem .55rem !important;border-radius:999px;font-size:.8rem !important;margin:0 !important;text-decoration:none}
+  .lang-mini a[aria-current="true"]{background:currentColor}
+  .lang-mini a[aria-current="true"]{color:inherit}
+  .top .lang-mini{color:var(--cream)}
+  .top .lang-mini a[aria-current="true"]{background:var(--wheat);color:var(--ink)}
+
+  /* Hero */
+  .hero{background:var(--ink) radial-gradient(120% 90% at 85% 10%,#4A3326 0%,var(--ink) 60%);color:#fff;padding-block:clamp(2.5rem,6vw,4.5rem)}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(1.8rem,4vw,3.5rem);align-items:center}
+  .hero .art{border-radius:22px;border:4px solid #000;box-shadow:10px 10px 0 #000;width:100%;aspect-ratio:2000/1167;object-fit:cover;transform:rotate(1.2deg)}
+  .title{display:flex;align-items:center;flex-wrap:wrap;column-gap:.28em;font-size:clamp(2.7rem,6.2vw,5rem);
+    text-shadow:0 .06em 0 var(--ink),0 0 .02em var(--ink),.05em .05em 0 var(--ink),-.03em .05em 0 var(--ink)}
+  .title .nw{display:inline-flex;align-items:center;white-space:nowrap}
+  .title .o{display:inline-block;width:.86em;height:.86em;border-radius:50%;border:.07em solid var(--ink);background:#fff;
+    box-shadow:.04em .06em 0 var(--ink);vertical-align:middle;overflow:hidden;margin-inline:.02em}
+  .title .o img{width:100%;height:100%;object-fit:cover}
+  .tagline{font-family:var(--head);font-size:clamp(1.4rem,3.4vw,2.2rem);color:var(--wheat);margin:.6rem 0 .4rem;text-shadow:0 .08em 0 var(--ink)}
+  .lede{max-width:46ch;margin:0 0 1.6rem;font-size:clamp(1.05rem,2.2vw,1.25rem);font-weight:600}
+  .actions{display:flex;flex-wrap:wrap;gap:.8rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-size:1.2rem;text-decoration:none;
+    padding:.7rem 1.3rem;border-radius:14px;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--ink)}
+  .btn-main{background:var(--wheat);color:var(--ink)}
+  .btn-alt{background:#fff;color:var(--ink)}
+  .soon{font-family:var(--body);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--wheat);padding:.15rem .5rem;border-radius:6px}
+
+  section{padding-block:clamp(4rem,9vw,6.5rem)}
+  .intro{background:var(--wheat)}
+  .intro .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+  .intro h2{margin-bottom:1rem}
+  .intro p{margin:0 0 1rem;font-weight:600}
+  .intro img{border-radius:22px;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);aspect-ratio:1/1;object-fit:cover;width:100%}
+
+  .trailer{background:var(--ink);color:var(--cream);text-align:center}
+  .trailer h2{color:var(--wheat);margin-bottom:2rem}
+  .trailer video{width:min(960px,100%);margin-inline:auto;border-radius:18px;border:4px solid #000;background:#000;aspect-ratio:16/9}
+
+  .features h2{margin-bottom:2.4rem;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin:0;padding:0;list-style:none}
+  .grid li{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:1.4rem 1.4rem 1.5rem;box-shadow:0 6px 0 var(--ink)}
+  .grid li:nth-child(6n+1){background:#FFF1CC}
+  .grid li:nth-child(6n+2){background:#E3F4FC}
+  .grid li:nth-child(6n+3){background:#E8F6DD}
+  .grid li:nth-child(6n+4){background:#FBE3DA}
+  .grid li:nth-child(6n+5){background:#FFF1CC}
+  .grid li:nth-child(6n+6){background:#E3F4FC}
+  .grid h3{font-size:1.45rem;margin-bottom:.4rem}
+  .grid p{margin:0;color:var(--ink-2)}
+
+  .shots{background:var(--sky)}
+  .shots h2{margin-bottom:2rem;text-align:center}
+  .rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,620px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 1.2rem;
+    scrollbar-color:var(--ink) transparent}
+  .rail img{scroll-snap-align:center;border-radius:16px;border:4px solid var(--ink);box-shadow:0 6px 0 var(--ink);width:100%;aspect-ratio:1300/622;object-fit:cover}
+  .hint{text-align:center;margin:.4rem 0 0;font-weight:700;color:var(--ink-2);font-size:.95rem}
+
+  .art h2{margin-bottom:2rem;text-align:center}
+  .mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:16px;border:4px solid var(--ink)}
+  .mosaic .wide{grid-column:span 2}
+  .mosaic img{aspect-ratio:4/3}
+  .mosaic .wide img{aspect-ratio:auto}
+
+  .cta{background:var(--grass);text-align:center}
+  .cta h2{margin-bottom:.8rem;color:#fff;text-shadow:0 .06em 0 var(--ink)}
+  .cta p{margin:0 auto 1.6rem;max-width:46ch;font-weight:700}
+  .cta .actions{justify-content:center}
+
+  footer{background:var(--ink);color:#CBBFB5;padding-block:2.2rem;font-size:.95rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center}
+  footer p{margin:0}
+  footer a{color:var(--cream)}
+  footer a:hover{color:var(--wheat)}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero .art{order:-1;transform:none}
+    .title{font-size:clamp(2.6rem,12vw,4.4rem)}
+    .intro .wrap{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .mosaic{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .top nav a:not(.keep){display:none}
+    .grid{grid-template-columns:1fr}
+    .mosaic{grid-template-columns:1fr}
+    .mosaic .wide{grid-column:auto}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Saltar al contenido</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="PE Studio, inicio"><img src="/assets/pestudio-logo-white.svg" width="1952" height="444" alt="PE Studio"></a>
+    <nav aria-label="Principal">
+      <a href="#features">Características</a>
+      <a href="#trailer">Tráiler</a>
+      <a class="keep" href="/sheep-or-lead/privacy/es/">Privacidad</a>
+      <span class="lang-mini"><a class="keep" href="/sheep-or-lead/" hreflang="en" lang="en">EN</a><a class="keep" href="/sheep-or-lead/es/" hreflang="es" lang="es" aria-current="true">ES</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="game-title">
+    <div class="wrap">
+      <div>
+      <h1 id="game-title" class="title" aria-label="Sheep or Lead"><span aria-hidden="true">SHEEP</span> <span class="nw" aria-hidden="true"><span class="o"><img src="/sheep-or-lead/assets/sheep-icon-512.png" width="512" height="512" alt=""></span>R&nbsp;LEAD</span></h1>
+      <p class="tagline">El rebaño contraataca.</p>
+      <p class="lede">Un shooter arcade de dibujos animados para Android. Elige tu oveja, tu ropa y tu arma, y aguanta contra zorros, lobos y coyotes.</p>
+      <div class="actions">
+        <span class="btn btn-main" role="note">Google Play <span class="soon">Muy pronto</span></span>
+        <a class="btn btn-alt" href="#trailer">Ver el tráiler</a>
+      </div>
+      </div>
+      <img class="art" src="/sheep-or-lead/assets/sol-hero.jpg" width="2000" height="1167" alt="Una oveja con una escopeta resiste a una manada de zorros, lobos y coyotes dentro de un granero">
+    </div>
+  </section>
+
+  <section class="intro" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div>
+        <h2 id="about-title">Esta vez no, lobo.</h2>
+        <p>Durante generaciones, zorros, lobos y coyotes han venido a por el rebaño. Esta oveja ha decidido que ya basta.</p>
+        <p>Sheep or Lead es un shooter rápido y de partidas cortas pensado para tu móvil: los enemigos no paran de llegar, el reloj sigue corriendo y cada uno que frenas suma a tu marcador. Otra ronda siempre está a un toque.</p>
+      </div>
+      <img src="/sheep-or-lead/assets/sol-art-disguise.jpg" width="1200" height="1200" loading="lazy" alt="Un lobo disfrazado de oveja se acerca al rebaño, con una oveja escondida bajo el disfraz">
+    </div>
+  </section>
+
+  <section class="trailer" id="trailer" aria-labelledby="trailer-title">
+    <div class="wrap">
+      <h2 id="trailer-title">Ver el tráiler</h2>
+      <video controls preload="none" playsinline poster="/sheep-or-lead/assets/sol-trailer-poster.jpg" width="852" height="480">
+        <source src="/sheep-or-lead/assets/sol-trailer.mp4" type="video/mp4">
+        Tu navegador no puede mostrar el vídeo. <a href="/sheep-or-lead/assets/sol-trailer.mp4">Descarga el tráiler</a>.
+      </video>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <h2 id="features-title">Qué hay en el granero</h2>
+      <ul class="grid">
+        <li><h3>Manadas sin fin</h3><p>Zorros, lobos y coyotes te atacan por los dos lados. Mantén el reloj en marcha y el marcador subiendo.</p></li>
+        <li><h3>Todo un arsenal</h3><p>Escopetas, fusiles de asalto y más. Encuentra el arma que va con tu estilo.</p></li>
+        <li><h3>Viste para la batalla</h3><p>Pañuelos, cascos, un penacho de plumas… Toda oveja merece su estilo.</p></li>
+        <li><h3>Tres escenarios</h3><p>La granja del molino, el granero y el bosque, cada uno con su propio fondo dibujado a mano.</p></li>
+        <li><h3>Tu dificultad</h3><p>Fácil, media o difícil. Calienta en la granja o ve directo a por las manadas más duras.</p></li>
+        <li><h3>Desbloquea jugando</h3><p>Gana puntos para desbloquear nuevas ovejas, ropa y armas. Disponible en inglés y en español.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="shots" aria-labelledby="shots-title">
+    <div class="wrap">
+      <h2 id="shots-title">Capturas</h2>
+      <div class="rail" tabindex="0" aria-label="Capturas, desplázate hacia los lados">
+        <img src="/sheep-or-lead/assets/sol-shot-1.jpg" width="1300" height="622" loading="lazy" alt="Luchando contra un lobo en la granja del molino">
+        <img src="/sheep-or-lead/assets/sol-shot-2.jpg" width="1300" height="622" loading="lazy" alt="Rodeada de zorros dentro del granero">
+        <img src="/sheep-or-lead/assets/sol-shot-3.jpg" width="1300" height="622" loading="lazy" alt="Una oveja con penacho de plumas dispara un fusil de asalto en el bosque">
+        <img src="/sheep-or-lead/assets/sol-shot-4.jpg" width="1300" height="622" loading="lazy" alt="Un coyote ataca en la granja">
+        <img src="/sheep-or-lead/assets/sol-shot-5.jpg" width="1300" height="622" loading="lazy" alt="Una oveja con casco se enfrenta a un lobo en el granero">
+        <img src="/sheep-or-lead/assets/sol-shot-6.jpg" width="1300" height="622" loading="lazy" alt="Aguantando en el bosque">
+      </div>
+      <p class="hint">Desliza o desplázate hacia los lados para ver más</p>
+    </div>
+  </section>
+
+  <section class="art" aria-labelledby="art-title">
+    <div class="wrap">
+      <h2 id="art-title">Del cuaderno de bocetos</h2>
+      <div class="mosaic">
+        <div class="wide"><img src="/sheep-or-lead/assets/sol-art-field.jpg" width="1600" height="1131" loading="lazy" alt="Una oveja con un fusil en mitad de una batalla en campo abierto"></div>
+        <div><img src="/sheep-or-lead/assets/sol-art-crowd.jpg" width="1100" height="1186" loading="lazy" alt="Una oveja sola rodeada por una multitud de zorros y lobos"></div>
+        <div><img src="/sheep-or-lead/assets/sol-art-forest.jpg" width="1600" height="1253" loading="lazy" alt="Zorros y lobos con mochilas propulsoras atacan a una oveja en el bosque"></div>
+        <div class="wide"><img src="/sheep-or-lead/assets/sol-art-scene.jpg" width="1600" height="960" loading="lazy" alt="Una oveja y un coyote cara a cara en un bosque soleado"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="wrap">
+      <h2 id="cta-title">Muy pronto en Google Play</h2>
+      <p>Sheep or Lead está de camino a Android. ¿Preguntas, prensa o sugerencias? Escríbenos.</p>
+      <div class="actions">
+        <a class="btn btn-alt" href="mailto:diego.ceballos.dev@pestudio.eu">diego.ceballos.dev@pestudio.eu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Sheep or Lead · © 2026 PE Studio · España</p>
+    <p><a href="/sheep-or-lead/privacy/es/">Política de privacidad</a> · <a href="/">PE Studio</a> · <a href="mailto:diego.ceballos.dev@pestudio.eu">Contacto</a></p>
+  </div>
+</footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3656436e5878476fa09a67e64cc4ee21"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

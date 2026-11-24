@@ -4,15 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PE Studio · AITHERAXIS: KATABASIS</title>
-<meta name="description" content="PE Studio is an independent game studio from Spain. Its first game, AITHERAXIS: KATABASIS, is a sci-fi shoot 'em up with a local multiplayer mode for up to four players, coming in 2027.">
+<meta name="description" content="PE Studio is an independent game studio from Spain. Its games are AITHERAXIS: KATABASIS, a sci-fi shoot 'em up with local multiplayer for up to four players coming in 2027, and Sheep or Lead for Android.">
 <meta property="og:title" content="AITHERAXIS: KATABASIS · PE Studio">
 <meta property="og:description" content="A sci-fi shoot 'em up where the battlefield itself shifts, with SQUADRON, local multiplayer for up to four players. Coming 2027.">
 <meta property="og:image" content="https://pestudio.eu/assets/tunnel.jpg">
 <meta property="og:url" content="https://pestudio.eu/">
+<meta property="og:locale" content="en_GB">
+<link rel="canonical" href="https://pestudio.eu/">
+<link rel="alternate" hreflang="en" href="https://pestudio.eu/">
+<link rel="alternate" hreflang="es" href="https://pestudio.eu/es/">
+<link rel="alternate" hreflang="fr" href="https://pestudio.eu/fr/">
+<link rel="alternate" hreflang="de" href="https://pestudio.eu/de/">
+<link rel="alternate" hreflang="pt-BR" href="https://pestudio.eu/pt-br/">
+<link rel="alternate" hreflang="ru" href="https://pestudio.eu/ru/">
+<link rel="alternate" hreflang="ja" href="https://pestudio.eu/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://pestudio.eu/zh-cn/">
+<link rel="alternate" hreflang="x-default" href="https://pestudio.eu/">
 <meta name="theme-color" content="#080A17">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preload" as="image" href="assets/logo-katabasis.webp" type="image/webp">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/logo-katabasis.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
@@ -157,6 +168,18 @@
 
 
 
+
+  /* ---------- Language switcher ---------- */
+  .lang{position:relative}
+  .lang summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:600;padding:.32rem .7rem;border:1px solid rgba(230,242,247,.3);border-radius:999px;color:var(--starlight);user-select:none}
+  .lang summary::-webkit-details-marker{display:none}
+  .lang summary:hover,.lang[open] summary{border-color:var(--axis);color:var(--axis)}
+  .lang summary svg{width:16px;height:16px}
+  .lang ul{position:absolute;right:0;top:calc(100% + .55rem);list-style:none;margin:0;padding:.35rem;background:#0B1022;border:1px solid rgba(57,225,239,.35);border-radius:10px;min-width:200px;z-index:40;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+  .top nav .lang a{display:block;padding:.45rem .75rem;border-radius:6px;font-size:.95rem;opacity:.9}
+  .top nav .lang a:hover{background:rgba(57,225,239,.1);opacity:1}
+  .top nav .lang a[aria-current="true"]{color:var(--axis);opacity:1}
+
   /* ---------- Trailer ---------- */
   .trailer{background:linear-gradient(180deg,var(--abyss) 0%,#081428 100%);text-align:center}
   .trailer .kicker{text-align:center;max-width:none;margin-inline:auto;font-family:var(--display);font-weight:500;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--axis);margin-block:0 .8rem}
@@ -230,7 +253,7 @@
     .sq-gallery{grid-template-columns:1fr}
   }
   @media (max-width:520px){
-    .top nav a:not(.sol):not([href="#contact"]){display:none}
+    .top nav > a:not(.sol){display:none}
     .top nav a.sol span{display:none}
     .top nav a.sol{padding:.2rem}
     .brand img{height:32px}
@@ -247,27 +270,28 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="PE Studio, home"><img src="assets/pestudio-logo-white.svg" width="1952" height="444" alt="PE Studio"></a>
+    <a class="brand" href="#top" aria-label="PE Studio, home"><img src="/assets/pestudio-logo-white.svg" width="1952" height="444" alt="PE Studio"></a>
     <nav aria-label="Main">
       <a href="#game">The game</a>
       <a href="#trailer">Trailer</a>
       <a href="#squadron">Squadron</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
-      <a class="sol" href="/sheep-or-lead/" title="Sheep or Lead, our game for Android"><img src="assets/sheep-icon-96.png" width="96" height="96" alt=""><span>Sheep or Lead</span></a>
+      <details class="lang"><summary aria-label="Language: English"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>EN</span></summary><ul><li><a href="/" hreflang="en" lang="en" aria-current="true">English</a></li><li><a href="/es/" hreflang="es" lang="es">Español</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li></ul></details>
+      <a class="sol" href="/sheep-or-lead/" title="Sheep or Lead, our game for Android"><img src="/assets/sheep-icon-96.png" width="96" height="96" alt=""><span>Sheep or Lead</span></a>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <section class="hero" id="hero" aria-label="AITHERAXIS: KATABASIS">
-    <img class="poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true">
-    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/hero.mp4" type="video/mp4">
+    <img class="poster" src="/assets/hero-poster.jpg" alt="" aria-hidden="true">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg" aria-hidden="true">
+      <source src="/assets/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-inner">
       <h1>AITHERAXIS: KATABASIS</h1>
-      <picture><source srcset="assets/logo-katabasis.webp" type="image/webp"><img class="hero-logo" src="assets/logo-katabasis.png" width="1400" height="1048" alt="AITHERAXIS: KATABASIS logo" fetchpriority="high"></picture>
+      <picture><source srcset="/assets/logo-katabasis.webp" type="image/webp"><img class="hero-logo" src="/assets/logo-katabasis.png" width="1400" height="1048" alt="AITHERAXIS: KATABASIS logo" fetchpriority="high"></picture>
       <div class="signal" id="signal" aria-label="Return home. Do not return. Home does not exist. You have already arrived."></div>
       <p class="tagline">A sci-fi shoot 'em up where the battlefield itself shifts, plus SQUADRON, local multiplayer for up to four players. In development for PC and consoles. Coming 2027.</p>
       <div class="actions">
@@ -282,7 +306,7 @@
       <p class="kicker">Official gameplay trailer</p>
       <h2 id="trailer-title">See it in motion</h2>
       <a class="yt" id="ytPlayer" href="https://www.youtube.com/watch?v=U01h4RsNyLU" data-id="U01h4RsNyLU" aria-label="Play the AITHERAXIS: KATABASIS gameplay trailer">
-        <img src="assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
+        <img src="/assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
         <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
         <span class="label" aria-hidden="true">Play trailer</span>
       </a>
@@ -302,8 +326,8 @@
         <p>Read the bullet patterns, roll through enemies, dodge at the last second and keep your laser from overheating. Then the world turns ninety degrees.</p>
       </div>
       <figure class="split">
-        <img src="assets/orion.jpg" width="1600" height="900" alt="Side-scrolling combat above the clouds of the Orion Sector">
-        <img class="b" src="assets/topdown.jpg" width="1600" height="900" alt="The same stage seen from above, in top-down view">
+        <img src="/assets/orion.jpg" width="1600" height="900" alt="Side-scrolling combat above the clouds of the Orion Sector">
+        <img class="b" src="/assets/topdown.jpg" width="1600" height="900" alt="The same stage seen from above, in top-down view">
         <svg class="seam" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="62" y1="0" x2="38" y2="100" stroke="#39E1EF" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
         <figcaption class="ca">Side view</figcaption>
         <figcaption class="cb">Top-down</figcaption>
@@ -320,39 +344,39 @@
       <ol class="track">
         <li class="stop"><span class="n" aria-hidden="true">1</span>
           <h3>Orion Sector</h3><p class="guard">Guarded by <b>ORION</b></p>
-          <figure><img src="assets/orion.jpg" width="1600" height="900" loading="lazy" alt="The ship fighting enemy fighters above a sea of clouds"></figure>
+          <figure><img src="/assets/orion.jpg" width="1600" height="900" loading="lazy" alt="The ship fighting enemy fighters above a sea of clouds"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">2</span>
           <h3>Asteroid Belt</h3><p class="guard">Guarded by <b>KRUX</b></p>
-          <figure><img src="assets/asteroids.jpg" width="1600" height="900" loading="lazy" alt="Dodging asteroids and enemy cruisers in front of a violet storm"></figure>
+          <figure><img src="/assets/asteroids.jpg" width="1600" height="900" loading="lazy" alt="Dodging asteroids and enemy cruisers in front of a violet storm"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">3</span>
-          <h3>Kefra Station</h3><p class="guard">Guarded by <b>NEXO</b></p>
-          <figure><img src="assets/kefra.jpg" width="1600" height="900" loading="lazy" alt="Top-down flight along a giant orbital tower above a planet"></figure>
+          <h3>Kefra Station</h3><p class="guard">Guarded by <b>NEXUS</b></p>
+          <figure><img src="/assets/kefra.jpg" width="1600" height="900" loading="lazy" alt="Top-down flight along a giant orbital tower above a planet"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">4</span>
-          <h3>Crimson Nebula</h3><p class="guard">Guarded by <b>ARACNE</b></p>
-          <figure><img src="assets/nebula.jpg" width="1600" height="900" loading="lazy" alt="Explosions inside a crimson nebula with a glowing vortex"></figure>
+          <h3>Crimson Nebula</h3><p class="guard">Guarded by <b>ARACHNE</b></p>
+          <figure><img src="/assets/nebula.jpg" width="1600" height="900" loading="lazy" alt="Explosions inside a crimson nebula with a glowing vortex"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">5</span>
-          <h3>Orbital Graveyard</h3><p class="guard">Guarded by <b>CARONTE</b></p>
-          <figure><img src="assets/graveyard.jpg" width="1600" height="900" loading="lazy" alt="Flying past the wreck of a giant derelict warship beside a burning sun"></figure>
+          <h3>Orbital Graveyard</h3><p class="guard">Guarded by <b>CHARON</b></p>
+          <figure><img src="/assets/graveyard.jpg" width="1600" height="900" loading="lazy" alt="Flying past the wreck of a giant derelict warship beside a burning sun"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">6</span>
-          <h3>Helios Port</h3><p class="guard">Guarded by <b>HELIOSTATO</b></p>
-          <figure><img src="assets/heliostato.jpg" width="1600" height="900" loading="lazy" alt="Boss introduction: Heliostato, Colossus Class"></figure>
+          <h3>Helios Port</h3><p class="guard">Guarded by <b>HELIOSTAT</b></p>
+          <figure><img src="/assets/heliostato.jpg" width="1600" height="900" loading="lazy" alt="Boss introduction: the Heliostat, Colossus Class"></figure>
         </li>
         <li class="stop deep"><span class="n" aria-hidden="true">7</span>
-          <h3>Void Anomaly</h3><p class="guard">Guarded by <b>NULO</b></p>
-          <figure><img src="assets/void.jpg" width="1600" height="900" loading="lazy" alt="A canyon torn by violet lightning and floating rocks"></figure>
+          <h3>Void Anomaly</h3><p class="guard">Guarded by <b>NULL</b></p>
+          <figure><img src="/assets/void.jpg" width="1600" height="900" loading="lazy" alt="A canyon torn by violet lightning and floating rocks"></figure>
         </li>
         <li class="stop deep"><span class="n" aria-hidden="true">8</span>
-          <h3>Titan Forge</h3><p class="guard">Guarded by <b>PROMETIO</b></p>
-          <figure><img src="assets/forge.jpg" width="1600" height="900" loading="lazy" alt="An industrial station under a black hole"></figure>
+          <h3>Titan Forge</h3><p class="guard">Guarded by <b>PROMETHEUS</b></p>
+          <figure><img src="/assets/forge.jpg" width="1600" height="900" loading="lazy" alt="An industrial station under a black hole"></figure>
         </li>
         <li class="stop deep"><span class="n" aria-hidden="true">9</span>
-          <h3>Black Horizon</h3><p class="guard">Guarded by <b>JANO</b></p>
-          <figure><img src="assets/horizon.jpg" width="1600" height="900" loading="lazy" alt="Ancient stone ruins and glowing portals adrift in a cosmic river"></figure>
+          <h3>Black Horizon</h3><p class="guard">Guarded by <b>JANUS</b></p>
+          <figure><img src="/assets/horizon.jpg" width="1600" height="900" loading="lazy" alt="Ancient stone ruins and glowing portals adrift in a cosmic river"></figure>
         </li>
         <li class="stop core"><span class="n" aria-hidden="true">10</span><h3>Final Core</h3><p class="guard">Guarded by <b>???</b></p></li>
       </ol>
@@ -362,16 +386,16 @@
   <section class="lights" aria-labelledby="lights-title">
     <div class="wrap">
       <div class="board" role="img" aria-label="The ship's upgrade circuit with the eight Squixis lighting up one by one">
-        <img class="board-base" src="assets/circuit-board.webp" width="1600" height="803" alt="" loading="lazy">
-        <img class="board-plat" src="assets/circuit-platinum.webp" width="1600" height="803" alt="" loading="lazy">
-        <img class="gem gm0" src="assets/gem-1_cyan.webp" width="360" height="360" style="left:12.78%;top:26.58%;width:13.82%;--c:#14B9D8" alt="Cyan Squixi" loading="lazy">
-        <img class="gem gm1" src="assets/gem-2_orange.webp" width="360" height="360" style="left:12.82%;top:70.95%;width:13.82%;--c:#D89114" alt="Amber Squixi" loading="lazy">
-        <img class="gem gm2" src="assets/gem-3_green.webp" width="360" height="360" style="left:31.40%;top:71.11%;width:13.82%;--c:#14D82E" alt="Green Squixi" loading="lazy">
-        <img class="gem gm3" src="assets/gem-4_purple.webp" width="360" height="360" style="left:49.94%;top:26.66%;width:13.82%;--c:#B813D8" alt="Violet Squixi" loading="lazy">
-        <img class="gem gm4" src="assets/gem-5_red.webp" width="360" height="360" style="left:50.02%;top:71.11%;width:13.82%;--c:#D83214" alt="Red Squixi" loading="lazy">
-        <img class="gem gm5" src="assets/gem-6_yellow.webp" width="360" height="360" style="left:68.60%;top:71.11%;width:13.82%;--c:#C8D413" alt="Yellow Squixi" loading="lazy">
-        <img class="gem gm6" src="assets/gem-7_blue.webp" width="360" height="360" style="left:87.14%;top:26.58%;width:13.82%;--c:#142CD8" alt="Blue Squixi" loading="lazy">
-        <img class="gem gm7" src="assets/gem-8_gold.webp" width="360" height="360" style="left:87.14%;top:71.19%;width:13.82%;--c:#D7BF14" alt="Gold Squixi" loading="lazy">
+        <img class="board-base" src="/assets/circuit-board.webp" width="1600" height="803" alt="" loading="lazy">
+        <img class="board-plat" src="/assets/circuit-platinum.webp" width="1600" height="803" alt="" loading="lazy">
+        <img class="gem gm0" src="/assets/gem-1_cyan.webp" width="360" height="360" style="left:12.78%;top:26.58%;width:13.82%;--c:#14B9D8" alt="Cyan Squixi" loading="lazy">
+        <img class="gem gm1" src="/assets/gem-2_orange.webp" width="360" height="360" style="left:12.82%;top:70.95%;width:13.82%;--c:#D89114" alt="Amber Squixi" loading="lazy">
+        <img class="gem gm2" src="/assets/gem-3_green.webp" width="360" height="360" style="left:31.40%;top:71.11%;width:13.82%;--c:#14D82E" alt="Green Squixi" loading="lazy">
+        <img class="gem gm3" src="/assets/gem-4_purple.webp" width="360" height="360" style="left:49.94%;top:26.66%;width:13.82%;--c:#B813D8" alt="Violet Squixi" loading="lazy">
+        <img class="gem gm4" src="/assets/gem-5_red.webp" width="360" height="360" style="left:50.02%;top:71.11%;width:13.82%;--c:#D83214" alt="Red Squixi" loading="lazy">
+        <img class="gem gm5" src="/assets/gem-6_yellow.webp" width="360" height="360" style="left:68.60%;top:71.11%;width:13.82%;--c:#C8D413" alt="Yellow Squixi" loading="lazy">
+        <img class="gem gm6" src="/assets/gem-7_blue.webp" width="360" height="360" style="left:87.14%;top:26.58%;width:13.82%;--c:#142CD8" alt="Blue Squixi" loading="lazy">
+        <img class="gem gm7" src="/assets/gem-8_gold.webp" width="360" height="360" style="left:87.14%;top:71.19%;width:13.82%;--c:#D7BF14" alt="Gold Squixi" loading="lazy">
       </div>
       <h2 id="lights-title" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">The eight lights</h2>
       <blockquote>“When the eight lights gather again, the way to him will open.”</blockquote>
@@ -389,9 +413,9 @@
         <div><dt>Follow the story in comic pages</dt><dd>An animated comic prologue and LYRA's logs before each sector tell what happened, and what is still hidden.</dd></div>
       </dl>
       <div class="gallery">
-        <img src="assets/boss-nulo.jpg" width="1600" height="896" loading="lazy" alt="Boss fight against NULO, a void core wrapped in floating rocks and violet lightning">
-        <img src="assets/helios.jpg" width="1600" height="900" loading="lazy" alt="The ship flying through a rainstorm">
-        <img class="comic" src="assets/comic.jpg" width="1600" height="896" loading="lazy" alt="A comic page from the story: Iason takes off and LYRA spots three stars in a line">
+        <img src="/assets/boss-nulo.jpg" width="1600" height="896" loading="lazy" alt="Boss fight against NULL, a void core wrapped in floating rocks and violet lightning">
+        <img src="/assets/helios.jpg" width="1600" height="900" loading="lazy" alt="The ship flying through a rainstorm">
+        <img class="comic" src="/assets/comic.jpg" width="1600" height="896" loading="lazy" alt="A comic page from the story: Iason takes off and LYRA spots three stars in a line">
       </div>
     </div>
   </section>
@@ -405,10 +429,10 @@
         <li style="color:#2EE6F6">P1</li><li style="color:#FFC42E">P2</li><li style="color:#14D82E">P3</li><li style="color:#B813D8">P4</li>
       </ul>
       <p class="sq-intro">LYRA's combat simulators rebuild the ships and battlefields of Akryon so you and your friends can fight in free-flight 3D arenas, in split-screen. Short matches, instant rematches, no online required.</p>
-      <img class="sq-hero" src="assets/squadron-hangar.jpg" width="1600" height="896" loading="lazy" alt="The SQUADRON hangar: four platforms, one per player, with the Prototype ship and its stats">
+      <img class="sq-hero" src="/assets/squadron-hangar.jpg" width="1600" height="896" loading="lazy" alt="The SQUADRON hangar: four platforms, one per player, with the Prototype ship and its stats">
       <ul class="sq-modes">
         <li style="--c:#FF3F6B"><h3>BATTLE</h3><span class="n">2–4 players</span><p>Free-for-all in the arena. Knockouts, survival or two-versus-two teams.</p></li>
-        <li style="--c:#F5A623"><h3>COLOSSUS HUNT</h3><span class="n">1–4 players</span><p>Together against the HELIOSTATO. Surround it, break its weak points and survive its phases.</p></li>
+        <li style="--c:#F5A623"><h3>COLOSSUS HUNT</h3><span class="n">1–4 players</span><p>Together against the HELIOSTAT. Surround it, break its weak points and survive its phases.</p></li>
         <li style="--c:#39E1EF"><h3>SIEGE</h3><span class="n">1–4 players</span><p>Ever harder enemy waves, with a boss every five. How far can you go?</p></li>
       </ul>
       <dl class="sq-more">
@@ -418,8 +442,8 @@
         <div><dt>Everyone picks at once</dt><dd>Press a button to join, choose your ship on your own platform and get ready. Nobody waits for their turn.</dd></div>
       </dl>
       <div class="sq-gallery">
-        <img src="assets/squadron-modes.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON game mode selection: Battle, Colossus Hunt and Siege">
-        <img src="assets/squadron-arenas.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON arena selection: Krux Belt, Helios Port, Orbital Graveyard and Random">
+        <img src="/assets/squadron-modes.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON game mode selection: Battle, Colossus Hunt and Siege">
+        <img src="/assets/squadron-arenas.jpg" width="1600" height="896" loading="lazy" alt="SQUADRON arena selection: Krux Belt, Helios Port, Orbital Graveyard and Random">
       </div>
     </div>
   </section>
@@ -428,7 +452,7 @@
     <div class="wrap">
       <div>
         <h2 id="studio-title">One developer, one galaxy</h2>
-        <p>PE Studio is an independent game studio based in Spain. It is run by one person, Diego Ceballos Mora, a computer engineer who designs, codes and builds every part of his games himself.</p>
+        <p>PE Studio is an independent game studio based in Spain. It is run by one person, Diego Ceballos, a computer engineer who designs, codes and builds every part of his games himself.</p>
         <p>Its games: AITHERAXIS: KATABASIS, coming in 2027, and <a href="/sheep-or-lead/">Sheep or Lead</a>, a cartoon arcade shooter for Android.</p>
       </div>
       <dl class="facts">
@@ -453,9 +477,9 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-brand"><img src="assets/pestudio-monogram-white.svg" width="685" height="444" alt="" aria-hidden="true"><p>© 2026 PE Studio · Diego Ceballos Mora · Spain</p></div>
+    <div class="foot-brand"><img src="/assets/pestudio-monogram-white.svg" width="685" height="444" alt="" aria-hidden="true"><p>© 2026 PE Studio · Diego Ceballos · Spain</p></div>
     <p>AITHERAXIS: KATABASIS is in development. Images and footage are work in progress.</p>
-    <p class="foot-links"><a href="https://www.youtube.com/channel/UCOwWNNJ8mhLyxfcfFckn04A" target="_blank" rel="noopener">YouTube</a> · <a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead privacy policy</a></p>
+    <p class="foot-links"><a href="/press/">Press kit</a> · <a href="https://www.youtube.com/channel/UCOwWNNJ8mhLyxfcfFckn04A" target="_blank" rel="noopener">YouTube</a> · <a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead privacy policy</a></p>
   </div>
 </footer>
 
@@ -507,6 +531,11 @@
     var hv=document.getElementById('heroVideo'); if(hv) try{hv.pause();}catch(_){}
   });
 })();
+</script>
+<script>
+(function(){var d=document.querySelector('details.lang');if(!d)return;
+document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false;});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus();}});})();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3656436e5878476fa09a67e64cc4ee21"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
