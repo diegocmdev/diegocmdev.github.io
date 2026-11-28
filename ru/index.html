@@ -23,10 +23,11 @@
 <meta name="theme-color" content="#080A17">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/logo-katabasis.webp" type="image/webp">
+<link rel="preload" as="image" imagesrcset="/assets/logo-katabasis-720.webp 720w, /assets/logo-katabasis-1080.webp 1080w, /assets/logo-katabasis.webp 1400w" imagesizes="(max-width: 767px) min(88vw, 58.78svh, 588px), 1400px" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --abyss:#080A17; --hull:#10142B; --hull-2:#171C3A;
@@ -356,7 +357,7 @@
     </video>
     <div class="hero-inner">
       <h1>AITHERAXIS: KATABASIS</h1>
-      <picture><source srcset="/assets/logo-katabasis.webp" type="image/webp"><img class="hero-logo" src="/assets/logo-katabasis.png" width="1400" height="1048" alt="AITHERAXIS: KATABASIS logo" fetchpriority="high"></picture>
+      <picture><source srcset="/assets/logo-katabasis-720.webp 720w, /assets/logo-katabasis-1080.webp 1080w, /assets/logo-katabasis.webp 1400w" sizes="(max-width: 767px) min(88vw, 58.78svh, 588px), 1400px" type="image/webp"><img class="hero-logo" src="/assets/logo-katabasis.png" width="1400" height="1048" alt="AITHERAXIS: KATABASIS logo" fetchpriority="high"></picture>
       <div class="signal" id="signal" aria-label="Вернись домой. Не возвращайся. Дома не существует. Ты уже прибыл."></div>
       <p class="tagline">Научно-фантастический shoot 'em up, в котором меняется само поле боя, плюс SQUADRON — локальный мультиплеер на четверых. В разработке для ПК и консолей. Выход в 2027 году.</p>
       <div class="actions">
@@ -371,7 +372,7 @@
       <p class="kicker">Официальный геймплейный трейлер</p>
       <h2 id="trailer-title">Посмотрите в движении</h2>
       <a class="yt" id="ytPlayer" href="https://www.youtube.com/watch?v=U01h4RsNyLU" data-id="U01h4RsNyLU" aria-label="Смотреть трейлер AITHERAXIS: KATABASIS">
-        <img src="/assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
+        <img srcset="/assets/trailer-poster-720.webp 720w, /assets/trailer-poster-1080.webp 1080w, /assets/trailer-poster.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
         <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
         <span class="label" aria-hidden="true">Смотреть трейлер</span>
       </a>
@@ -391,8 +392,8 @@
         <p>Читайте узоры пуль, проходите сквозь врагов в бочке, уклоняйтесь в последний момент и не давайте лазеру перегреться. А потом мир поворачивается на девяносто градусов.</p>
       </div>
       <figure class="split">
-        <img src="/assets/orion.jpg" width="1600" height="900" alt="Side-scrolling combat above the clouds of the Orion Sector">
-        <img class="b" src="/assets/topdown.jpg" width="1600" height="900" alt="The same stage seen from above, in top-down view">
+        <img srcset="/assets/orion-720.webp 720w, /assets/orion-1080.webp 1080w, /assets/orion.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/orion.jpg" width="1600" height="900" alt="Side-scrolling combat above the clouds of the Orion Sector">
+        <img class="b" srcset="/assets/topdown-720.webp 720w, /assets/topdown-1080.webp 1080w, /assets/topdown.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/topdown.jpg" width="1600" height="900" alt="The same stage seen from above, in top-down view">
         <svg class="seam" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="62" y1="0" x2="38" y2="100" stroke="#39E1EF" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
         <figcaption class="ca">Вид сбоку</figcaption>
         <figcaption class="cb">Вид сверху</figcaption>
@@ -409,19 +410,19 @@
       <ol class="track">
         <li class="stop"><span class="n" aria-hidden="true">1</span>
           <h3>Сектор Ориона</h3><p class="guard">Охраняет <b>ORION</b></p>
-          <figure><img src="/assets/orion.jpg" width="1600" height="900" loading="lazy" alt="The ship fighting enemy fighters above a sea of clouds"></figure>
+          <figure><img srcset="/assets/orion-720.webp 720w, /assets/orion-1080.webp 1080w, /assets/orion.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/orion.jpg" width="1600" height="900" loading="lazy" alt="The ship fighting enemy fighters above a sea of clouds"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">2</span>
           <h3>Пояс астероидов</h3><p class="guard">Охраняет <b>KRUX</b></p>
-          <figure><img src="/assets/asteroids.jpg" width="1600" height="900" loading="lazy" alt="Dodging asteroids and enemy cruisers in front of a violet storm"></figure>
+          <figure><img srcset="/assets/asteroids-720.webp 720w, /assets/asteroids-1080.webp 1080w, /assets/asteroids.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/asteroids.jpg" width="1600" height="900" loading="lazy" alt="Dodging asteroids and enemy cruisers in front of a violet storm"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">3</span>
           <h3>Станция Кефра</h3><p class="guard">Охраняет <b>NEXUS</b></p>
-          <figure><img src="/assets/kefra.jpg" width="1600" height="900" loading="lazy" alt="Top-down flight along a giant orbital tower above a planet"></figure>
+          <figure><img srcset="/assets/kefra-720.webp 720w, /assets/kefra-1080.webp 1080w, /assets/kefra.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/kefra.jpg" width="1600" height="900" loading="lazy" alt="Top-down flight along a giant orbital tower above a planet"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">4</span>
           <h3>Багровая туманность</h3><p class="guard">Охраняет <b>ARACHNE</b></p>
-          <figure><img src="/assets/nebula.jpg" width="1600" height="900" loading="lazy" alt="Explosions inside a crimson nebula with a glowing vortex"></figure>
+          <figure><img srcset="/assets/nebula-720.webp 720w, /assets/nebula-1080.webp 1080w, /assets/nebula.jpg 1600w" sizes="(max-width: 767px) 88vw, 1600px" src="/assets/nebula.jpg" width="1600" height="900" loading="lazy" alt="Explosions inside a crimson nebula with a glowing vortex"></figure>
         </li>
         <li class="stop"><span class="n" aria-hidden="true">5</span>
           <h3>Орбитальное кладбище</h3><p class="guard">Охраняет <b>CHARON</b></p>
