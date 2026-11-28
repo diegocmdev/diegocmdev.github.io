@@ -1,0 +1,82 @@
+name: IndexNow - PE Studio
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+    branches: [main]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  notify-indexnow:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Notify IndexNow
+        env:
+          SITE_URL: https://pestudio.eu
+          INDEXNOW_KEY: 18407af4949a4f84808dd3a534bb6c11
+
+        run: |
+          python3 <<'PY'
+          import os
+          import json
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          site = os.environ["SITE_URL"]
+          key = os.environ["INDEXNOW_KEY"]
+
+          with urllib.request.urlopen(
+              site + "/sitemap.xml", timeout=30
+          ) as response:
+              sitemap = ET.fromstring(response.read())
+
+          ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+          urls = sorted(set(
+              node.text.strip()
+              for node in sitemap.findall("s:url/s:loc", ns)
+              if node.text and node.text.startswith(site + "/")
+          ))
+
+          if not urls:
+              raise RuntimeError("No URLs found in sitemap")
+
+          payload = {
+              "host": "pestudio.eu",
+              "key": key,
+              "keyLocation": site + "/" + key + ".txt",
+              "urlList": urls
+          }
+
+          request = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={"Content-Type": "application/json"},
+              method="POST"
+          )
+
+          with urllib.request.urlopen(
+              request, timeout=30
+          ) as response:
+              print("HTTP Status:", response.status)
+              print("URLs submitted:", len(urls))
+
+              if response.status not in (200, 202):
+                  raise RuntimeError("IndexNow submission failed")
+
+          for url in urls:
+              print(url)
+          PY
