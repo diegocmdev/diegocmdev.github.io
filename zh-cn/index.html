@@ -371,7 +371,7 @@
     <div class="wrap">
       <p class="kicker">官方实机预告片</p>
       <h2 id="trailer-title">看看它动起来的样子</h2>
-      <a class="yt" id="ytPlayer" href="https://www.youtube.com/watch?v=U01h4RsNyLU" data-id="U01h4RsNyLU" aria-label="播放《AITHERAXIS: KATABASIS》预告片">
+      <a class="yt" id="ytPlayer" data-pe-video data-pe-video-title="播放《AITHERAXIS: KATABASIS》预告片" href="https://www.youtube.com/watch?v=U01h4RsNyLU" data-id="U01h4RsNyLU" aria-label="播放《AITHERAXIS: KATABASIS》预告片">
         <img src="/assets/trailer-poster.jpg" width="1600" height="900" loading="lazy" alt="">
         <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
         <span class="label" aria-hidden="true">播放预告片</span>
@@ -546,7 +546,8 @@
     <div class="foot-brand"><img src="/assets/pestudio-monogram-white.svg" width="685" height="444" alt="" aria-hidden="true"><p>© 2026 PE Studio · Diego Ceballos · Spain</p></div>
     <p>《AITHERAXIS: KATABASIS》正在开发中。图片和视频均为开发中内容。</p>
     <p class="foot-links"><a href="/press/">媒体资料包</a> · <a href="https://www.youtube.com/channel/UCOwWNNJ8mhLyxfcfFckn04A" target="_blank" rel="noopener">YouTube</a> · <a href="/sheep-or-lead/">Sheep or Lead</a> · <a href="/sheep-or-lead/privacy/">Sheep or Lead 隐私政策</a></p>
-  </div>
+      <p class="pe-privacy-links"><a href="/privacy/zh-cn/">网站隐私与 Cookie</a> · <button type="button" class="pe-cookie-settings" data-pe-cookie-settings hidden>Cookie 设置</button></p>
+</div>
 </footer>
 
 <script>
@@ -581,28 +582,13 @@
   setTimeout(step, 900);
 })();
 </script>
-<script>
-(function(){
-  var a=document.getElementById('ytPlayer'); if(!a) return;
-  a.addEventListener('click',function(e){
-    e.preventDefault();
-    var id=a.getAttribute('data-id');
-    var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
-    f.title='AITHERAXIS: KATABASIS gameplay trailer';
-    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    f.allowFullscreen=true; f.referrerPolicy='strict-origin-when-cross-origin';
-    a.replaceWith(Object.assign(document.createElement('div'),{className:'yt'}));
-    document.querySelector('#trailer .yt').appendChild(f);
-    var hv=document.getElementById('heroVideo'); if(hv) try{hv.pause();}catch(_){}
-  });
-})();
-</script>
+
 <script>
 (function(){var d=document.querySelector('details.lang');if(!d)return;
 document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false;});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus();}});})();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3656436e5878476fa09a67e64cc4ee21"}'></script><!-- End Cloudflare Web Analytics -->
+
+<script src="/assets/pe-privacy.js" defer></script>
 </body>
 </html>
